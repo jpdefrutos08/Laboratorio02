@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.utn.frsf.dam.isi.laboratorio02.R;
 import ar.edu.utn.frsf.dam.isi.laboratorio02.dao.PedidoRepository;
@@ -63,6 +64,7 @@ public class altaproducto extends AppCompatActivity {
         horaIng = (EditText) findViewById(R.id.idIngHoraSolicitada);
         PedidoRepository reposi;
         Pedido elPedido;
+        btnHacerPedido = (Button) findViewById(R.id.idBotonHacerPedido);
 
         listaProdSeleccionados = findViewById(R.id.idListaProdAlta);
         repositorioPedido = new PedidoRepository();
@@ -99,7 +101,7 @@ public class altaproducto extends AppCompatActivity {
         btnHacerPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Pedido unPedido = new Pedido();
+                Pedido unPedido = new Pedido();
 
                 /*String[] horaIngresada = editHora.getText().toString().split(":");
                 GregorianCalendar hora = new GregorianCalendar();
@@ -121,8 +123,6 @@ public class altaproducto extends AppCompatActivity {
                 elPedido.setFecha(hora.getTime());*/
 
                 // setear el resto de los atributos del pedido
-
-                repositorioPedido.guardarPedido(unPedido);
                 // lo seteamos a una nueva instancia para el proximo pedido
 
                 Log.d("APP_LAB02", "Pedido " + unPedido.toString());
@@ -140,10 +140,36 @@ public class altaproducto extends AppCompatActivity {
                 unPedido.setEstado(Pedido.Estado.REALIZADO);
                 repositorioPedido.guardarPedido(unPedido);
 
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.currentThread().sleep(10000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        // buscar pedidos no aceptados y aceptarlos utomáticamente
+                        List<Pedido> lista = repositorioPedido.getLista();
+                        for (Pedido p : lista) {
+                            if (p.getEstado().equals(Pedido.Estado.REALIZADO))
+                                p.setEstado(Pedido.Estado.ACEPTADO);
+                        }
+                        runOnUiThread(new Runnable() {
+                                          @Override
+                                          public void run() {
+                            Toast.makeText(altaproducto.this, "Informacion de pedidos actualizada",
+                                    Toast.LENGTH_LONG).show();
+                                          }
+                                      }
+                        );
+                    }
+                };
+                Thread unHilo = new Thread();
+                unHilo.start();
             }
         });
 
-    }
+    };
 
     public void onClick(View view) {
         if (view.getId() == R.id.idRadioDomicilio) {
@@ -154,29 +180,32 @@ public class altaproducto extends AppCompatActivity {
         }
     }
 
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+     protected void onActivityResult ( int requestCode, int resultCode,
+       @Nullable Intent data){
+         super.onActivityResult(requestCode, resultCode, data);
 
-        ProductoRepository repositorioProducto = new ProductoRepository();
-        PedidoDetalle detalleProd;
-        Producto prod;
-        int cod;
-        int cant;
-        int codProd;
-        Double suma;
+            ProductoRepository repositorioProducto = new ProductoRepository();
+            PedidoDetalle detalleProd;
+             Producto prod;
+             int cod;
+             int cant;
+             int codProd;
+             Double suma;
 
-        if (requestCode == 1234 && resultCode == RESULT_OK) {
-            cod = data.getExtras().getInt("idproducto");
-            cant = data.getExtras().getInt("cantidad");
-            prod = repositorioProducto.buscarPorId(cod);//devolvió un producto
-            detalleProd = new PedidoDetalle(cod, prod);
-            Pedido unPedido = new Pedido(); //ESTA VACIO?
-            detalleProd.setPedido(unPedido);
-            suma = cant * prod.getPrecio();
-            mostrarTotal.setText("Total pedido: $" + suma);
-        }
-    }
-
+              if (requestCode == 1234 && resultCode == RESULT_OK) {
+                  cod = data.getExtras().getInt("idproducto");
+                  cant = data.getExtras().getInt("cantidad");
+                  prod = repositorioProducto.buscarPorId(cod);//devolvió un producto
+                  detalleProd = new PedidoDetalle(cod, prod);
+                  Pedido unPedido = new Pedido(); //ESTA VACIO?
+                  detalleProd.setPedido(unPedido);
+                  suma = cant * prod.getPrecio();
+                  mostrarTotal.setText("Total pedido: $" + suma);
+              }
+       }
 
 }
+
+
