@@ -150,14 +150,15 @@ public class altaproducto extends AppCompatActivity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        // buscar pedidos no aceptados y aceptarlos utomáticamente
+                        // buscar pedidos no aceptados y aceptarlos Automáticamente
                         List<Pedido> lista = repositorioPedido.getLista();
-                        //UN HILO CONSULTA PEDIDOS CON ESTADO REALIZADO
+
+                        //UN HILO CONSULTA PEDIDOS CON ESTADO REALIZADO Y CAMBIA ESTADO
                         for (Pedido p : lista) {
                             if (p.getEstado().equals(Pedido.Estado.REALIZADO))
                                 p.setEstado(Pedido.Estado.ACEPTADO);
                         }
-                        //MSJ TOAST
+                        //MSJ TOAST. VER DONDE SE MUESTRA
                         runOnUiThread(new Runnable() {
                                           @Override
                                           public void run() {
