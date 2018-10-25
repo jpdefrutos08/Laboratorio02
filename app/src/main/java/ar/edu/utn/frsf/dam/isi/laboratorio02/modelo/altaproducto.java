@@ -179,7 +179,7 @@ public class altaproducto extends AppCompatActivity {
             }
         }
     }
-
+//probando comentario nomas
 
     @Override
      protected void onActivityResult ( int requestCode, int resultCode,
