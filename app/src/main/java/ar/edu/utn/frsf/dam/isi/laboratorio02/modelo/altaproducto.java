@@ -137,6 +137,8 @@ public class altaproducto extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     unPedido.setDireccionEnvio(direccion.toString());
                 }
+
+                //AHORA SETEO ESTADO CON "REALIZADO"
                 unPedido.setEstado(Pedido.Estado.REALIZADO);
                 repositorioPedido.guardarPedido(unPedido);
 
@@ -144,16 +146,18 @@ public class altaproducto extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            Thread.currentThread().sleep(10000);
+                            Thread.currentThread().sleep(10000); //DEMORO HILO 10 SEG
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         // buscar pedidos no aceptados y aceptarlos utomáticamente
                         List<Pedido> lista = repositorioPedido.getLista();
+                        //UN HILO CONSULTA PEDIDOS CON ESTADO REALIZADO
                         for (Pedido p : lista) {
                             if (p.getEstado().equals(Pedido.Estado.REALIZADO))
                                 p.setEstado(Pedido.Estado.ACEPTADO);
                         }
+                        //MSJ TOAST
                         runOnUiThread(new Runnable() {
                                           @Override
                                           public void run() {
@@ -166,6 +170,7 @@ public class altaproducto extends AppCompatActivity {
                 };
                 Thread unHilo = new Thread();
                 unHilo.start();
+
             }
         });
 
