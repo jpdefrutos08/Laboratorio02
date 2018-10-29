@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opciones_productos">
+        <item>MENU1</item>
+        <item>MENU2</item>
+        <item>MENU3</item>
+        <item>MENU4</item>
+        <item>MENU5</item>
+        <item>MENU6</item>
+        <item>MENU7</item>
+        <item>MENU8</item>
+        <item>MENU9</item>
+        <item>MENU10</item>
+    </string-array>
+
+    <string-array name="menu_1">
+        <item>Pollo</item>
+        <item>Gaseosa</item>
+        <item>Torta</item>
+    </string-array>
+
+    <string-array name="menu_2">
+        <item>Ensalada</item>
+        <item>Cerveza</item>
+        <item>Cafe</item>
+    </string-array>
+
+
+
+</resources>
+

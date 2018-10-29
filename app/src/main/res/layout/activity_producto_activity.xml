@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/idSeleccionar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Seleccionar una categoria" />
+
+    <Spinner
+        android:id="@+id/idSpinnerProductos"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:id="@+id/idTextLista"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Lista de productos" />
+
+    <ListView
+        android:id="@+id/idListViewLista"
+        android:layout_width="match_parent"
+        android:layout_height="294dp" />
+
+    <TextView
+        android:id="@+id/idTextCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Cantidad a pedir" />
+
+    <EditText
+        android:id="@+id/idIngCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:enabled="false"/>
+
+    <Button
+        android:id="@+id/idBotonAgregar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="AGREGAR" />
+
+</LinearLayout>

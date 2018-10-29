@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/idtitulopedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Datos del pedido" />
+
+    <TextView
+        android:id="@+id/idCorreoAlta"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="Correo" />
+
+    <EditText
+        android:id="@+id/idIngCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="33dp" />
+
+    <TextView
+        android:id="@+id/idModoEntregaAlta"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Modo de entrega" />
+
+    <RadioGroup
+        android:id="@+id/idRadioGroupRetiro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/idRadioLocal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:text="Retira en local" />
+
+        <RadioButton
+            android:id="@+id/idRadioDomicilio"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:onClick="onClick"
+            android:orientation="horizontal"
+            android:text="Enviar a domicilio" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/idDireDeEnvio"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Dirección de envío" />
+
+    <EditText
+        android:id="@+id/idIngDireDeEnvio"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        tools:ignore="DuplicateIds" />
+
+    <TextView
+        android:id="@+id/idHoraSolicitada"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Hora solicitada" />
+
+    <EditText
+        android:id="@+id/idIngHoraSolicitada"
+        android:layout_width="match_parent"
+        android:layout_height="33dp" />
+
+    <ListView
+        android:id="@+id/idListaProdAlta"
+        android:layout_width="match_parent"
+        android:layout_height="168dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/idBotonAgregarProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Prod" />
+
+        <Button
+            android:id="@+id/idBotonQuitarProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quitar Prod" />
+
+        <TextView
+            android:id="@+id/idMostrarTotal"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Total pedido"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="227dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/idBotonHacerPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hacer Pedido" />
+
+        <Button
+            android:id="@+id/idBotonVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volver" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

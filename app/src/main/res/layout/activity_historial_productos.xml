@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/idPedidosRealizados"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Pedidos realizados"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/idListaHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="417dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/idBotonAgregarProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Prod" />
+
+        <Button
+            android:id="@+id/idBotonQuitarProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quitar Prod" />
+
+    </LinearLayout>
+
+</LinearLayout>
