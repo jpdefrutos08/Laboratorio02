@@ -61,7 +61,7 @@ public class producto_activity extends AppCompatActivity {
             if(lista.getItemAtPosition(pos).equals("MENU1"))
             {   ArrayAdapter listaAdapter = ArrayAdapter.createFromResource(producto_activity.this,
                     array.menu_1, android.R.layout.simple_list_item_1);
-                ListViewProductos.setAdapter(listaAdapter);
+                    ListViewProductos.setAdapter(listaAdapter);
 
             }
             if(lista.getItemAtPosition(pos).equals("MENU2"))

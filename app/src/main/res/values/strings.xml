@@ -3,4 +3,7 @@
     <string name="main_titulo">Menu de opciones</string>
     <string name="opciones_productos">Spinner productos</string>
 
+    <string name="canal_estado_nombre">CANAL01</string>
+    <string name="canal_estado_descr">CANAL Pedido aceptado</string>
+
 </resources>

@@ -1,6 +1,8 @@
 package ar.edu.utn.frsf.dam.isi.laboratorio02.modelo;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import ar.edu.utn.frsf.dam.isi.laboratorio02.MyReceiver;
 import ar.edu.utn.frsf.dam.isi.laboratorio02.R;
 import ar.edu.utn.frsf.dam.isi.laboratorio02.dao.PedidoRepository;
 import ar.edu.utn.frsf.dam.isi.laboratorio02.dao.ProductoRepository;
@@ -63,6 +66,8 @@ public class altaproducto extends AppCompatActivity {
         horaIng = (EditText) findViewById(R.id.idIngHoraSolicitada);
         PedidoRepository reposi;
         Pedido elPedido;
+        final MyReceiver miReceiver = new MyReceiver();
+        final Intent miIntent= new Intent();
 
         listaProdSeleccionados = findViewById(R.id.idListaProdAlta);
         repositorioPedido = new PedidoRepository();
@@ -70,7 +75,7 @@ public class altaproducto extends AppCompatActivity {
 
         //SI RECIBO INTENT CON IDPEDIDO, SETEO LOS CAMPOS PARA MOSTRAR UN PEDIDO YA EXISTENTE
         //INTENT QUE VIENE DE ADAPTER EN HISTORIALPRODUCTOS
-        Intent i1 = getIntent();
+        final Intent i1 = getIntent();
         int idPedido = 0;
         if (i1.getExtras() != null) {
             idPedido = i1.getExtras().getInt("idPedido");
@@ -139,6 +144,12 @@ public class altaproducto extends AppCompatActivity {
                 }
                 unPedido.setEstado(Pedido.Estado.REALIZADO);
                 repositorioPedido.guardarPedido(unPedido);
+
+                miIntent.putExtra("estado","ESTADO_ACEPTADO");
+                miIntent.putExtra("idPedido",unPedido.getId());
+
+                miIntent.setAction(miReceiver.evento);
+                sendBroadcast(miIntent);
 
             }
         });
