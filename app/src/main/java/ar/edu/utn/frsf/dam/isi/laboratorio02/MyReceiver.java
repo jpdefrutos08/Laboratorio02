@@ -2,6 +2,7 @@ package ar.edu.utn.frsf.dam.isi.laboratorio02;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -40,10 +41,8 @@ public class MyReceiver extends BroadcastReceiver {
             .setSmallIcon(R.drawable.new_post)
             .setContentTitle("Laboratorio2")
             .setContentText("Tu pedido fué aceptado")
-            .setLargeIcon(myBitmap)
-            .setStyle(NotificationCompat.BigPictureStyle()
-                    .bigPicture(myBitmap)
-                    .bigLargeIcon(null))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
             .build();
 
 }

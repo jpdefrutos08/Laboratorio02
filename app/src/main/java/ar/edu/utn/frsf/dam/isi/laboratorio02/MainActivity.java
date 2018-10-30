@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnHistorial;
     private Button btnListaProductos;
     private Bundle miBundle = new Bundle();
+    private Button btnPrepararPedidos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         createNotificationChannel();
 
+        btnPrepararPedidos= (Button)findViewById(R.id.idBtnPrepararPedidos);
+
+        btnPrepararPedidos.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override public void onClick(View view) {
+                        // lanzar un servicio Intent service
+                    }
+                }
+        );
+    
         btnNuevoPedido = (Button) findViewById(R.id.btnMainNuevoPedido);
         btnNuevoPedido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +103,9 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
 
             //REVISAR. SERÍA PARA CLICK SOBRE NOTIFICACIÓN Y Q VAYA A ALTAPRODUCTO
-            Intent intent = new Intent(MainActivity.this, altaproducto.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0,intent, 0);
+            Intent destino = new Intent(MainActivity.this, altaproducto.class);
+            destino.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0,destino, 0);
 
         }
     }
