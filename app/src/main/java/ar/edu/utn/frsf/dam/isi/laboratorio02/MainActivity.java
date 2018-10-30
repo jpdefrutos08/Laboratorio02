@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,16 +27,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         createNotificationChannel();
 
-        btnPrepararPedidos= (Button)findViewById(R.id.idBtnPrepararPedidos);
+        btnPrepararPedidos = (Button) findViewById(R.id.idBtnPrepararPedidos);
+        btnPrepararPedidos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // lanzar un servicio Intent service
+                Log.d("CLASEO4","Crear intent service");
+                Intent nuevoServicio = new Intent(MainActivity.this, PrepararPedidoService.class);
+                startService(nuevoServicio);
+                
+            }
+        });
 
-        btnPrepararPedidos.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override public void onClick(View view) {
-                        // lanzar un servicio Intent service
-                    }
-                }
-        );
-    
+
+
+
+
         btnNuevoPedido = (Button) findViewById(R.id.btnMainNuevoPedido);
         btnNuevoPedido.setOnClickListener(new View.OnClickListener() {
             @Override

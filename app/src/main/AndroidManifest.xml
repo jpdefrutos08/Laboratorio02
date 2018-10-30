@@ -20,21 +20,23 @@
         <activity android:name=".modelo.altaproducto" />
         <activity android:name=".altaproducto" />
         <activity android:name=".modelo.PedidoActivity" />
-        <activity android:name=".modelo.HistorialProductos"></activity>
+        <activity android:name=".modelo.HistorialProductos" />
 
-        <receiver android:name="MyReceiver" android:exported="true">
+        <receiver
+            android:name=".MyReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="ESTADO_ACEPTADO"/>
-                <action android:name="ESTADO_CANCELADO"/>
-                <action android:name="ESTADO_EN_PREPARACION"/>
-                <action android:name="ESTADO_LISTO"/>
+                <action android:name="ESTADO_ACEPTADO" />
+                <action android:name="ESTADO_CANCELADO" />
+                <action android:name="ESTADO_EN_PREPARACION" />
+                <action android:name="ESTADO_LISTO" />
             </intent-filter>
-
-
         </receiver>
 
-
-
+        <service
+            android:name=".PrepararPedidoService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
