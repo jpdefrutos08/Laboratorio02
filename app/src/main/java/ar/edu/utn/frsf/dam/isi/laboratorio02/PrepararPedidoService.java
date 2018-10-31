@@ -38,7 +38,7 @@ public class PrepararPedidoService extends IntentService {
         if (ped.getEstado().equals(Pedido.Estado.ACEPTADO)) {
                 ped.setEstado(Pedido.Estado.EN_PREPARACION);
                 //envio broadcast
-                intentAux.putExtra("estado","ESTADO_PREPARACION");
+                intentAux.putExtra("estado","ESTADO_EN_PREPARACION");
                 intentAux.putExtra("idPedido",ped.getId());
 
                 intentAux.setAction(miReceiver.evento);

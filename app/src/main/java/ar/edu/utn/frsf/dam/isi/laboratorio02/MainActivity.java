@@ -35,13 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("CLASEO4","Crear intent service");
                 Intent nuevoServicio = new Intent(MainActivity.this, PrepararPedidoService.class);
                 startService(nuevoServicio);
-                
+
             }
         });
-
-
-
-
 
         btnNuevoPedido = (Button) findViewById(R.id.btnMainNuevoPedido);
         btnNuevoPedido.setOnClickListener(new View.OnClickListener() {

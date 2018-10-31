@@ -34,6 +34,19 @@ public class MyReceiver extends BroadcastReceiver {
                     "estado a ACEPTADO", Toast.LENGTH_SHORT).show();
 
         }
+
+        if ((intent.getAction()).equals("ESTADO_EN_PREPARACION")) {
+
+            pedi = repo.buscarPorId(intent.getExtras().getInt("idPedido"));
+
+            Log.d("MSJ", "Recibido" + intent.getAction());
+            //EN VEZ DE TOAST, DEBERÍA MOSTRAR UNA NOTIFICACIÓN
+
+            Toast.makeText(context, "Pedido para"+ pedi.getMailContacto()+"ha cambiado de " +
+                    "estado a EN PREPARACIÓN", Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
      NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, BroadcastNotification.CANAL_MENSAJES_ID)
