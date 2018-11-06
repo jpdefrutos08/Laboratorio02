@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_111111">
+        <item>Pollo</item>
+        <item>Gaseosa</item>
+        <item>Torta</item>
+
+    </string-array>
+
+</resources>
