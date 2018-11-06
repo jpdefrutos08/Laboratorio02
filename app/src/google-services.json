@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "148881464521",
+    "firebase_url": "https://lab03req04notifpush.firebaseio.com",
+    "project_id": "lab03req04notifpush",
+    "storage_bucket": "lab03req04notifpush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148881464521:android:7a517fd98f877024",
+        "android_client_info": {
+          "package_name": "lab03.Req04.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148881464521-440pea9lfeff2q6nhla06i9kra66de1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBybZe1RqAvmTqgbbTxe0iKRZ2QUfgLGMY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

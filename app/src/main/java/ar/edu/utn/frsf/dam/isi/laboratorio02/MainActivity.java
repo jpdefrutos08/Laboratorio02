@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+//main antivity
     public void onClick(View view) {
         //PRIMER PTO QUE SALTA A PRODUCTO_ACTIVITY DONDE BUSCA LOS PRODUCTOS
         //Intent miIntent = new Intent(MainActivity.this, producto_activity.class);
